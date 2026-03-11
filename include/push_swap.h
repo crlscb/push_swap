@@ -6,7 +6,7 @@
 /*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:38:18 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/11 15:30:37 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:49:53 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,29 @@ typedef struct s_stack
 {
 	t_node			*top;
 	int				size;
+	int				total_ops;
+	int				strategy;
+	double			disorder;
+	int				bench;
+	int				sa;
+	int				sb;
+	int				ss;
+	int				ra;
+	int				rb;
+	int				rr;
+	int				pa;
+	int				pb;
+	int				rra;
+	int				rrb;
+	int				rrr;
 }					t_stack;
 
 void				ft_parse_numbers(int argc, char **argv, t_stack *a);
 long				ft_atoi(const char *str);
 int					ft_final_atoi(char *str);
 int					ft_is_valid_number(char *str);
+int					ft_strategy_flag(char *str, t_stack *a);
+int					ft_bench_flag(char *str, t_stack *a);
 void				ft_error(void);
 
 void				ft_add_node_back(t_stack *stack, int value);
@@ -44,6 +61,8 @@ void				ft_check_duplicated(t_stack *a);
 void				ft_assign_index(t_stack *a);
 int					ft_is_order(t_stack *a);
 double				ft_compute_disorder(t_stack *a);
+void				ft_print_bench(t_stack a, t_stack b);
+void				ft_select_algorithm(t_stack *a);
 
 // void ft_select_algorithm(t_stack *a);
 /*    OPERATIONS     */
@@ -68,8 +87,8 @@ void				rrr(t_stack *a, t_stack *b);
 
 /*    ALGORITHMS    */
 // simple_sort.c
-void				insertion_sort(t_stack *a, t_stack *b);
-int					find_min(t_stack *a);
+void				simple_sort(t_stack *a, t_stack *b);
+int					find_min_index(t_stack *a);
 void				rotate_top(t_stack *a, int index);
 
 #endif

@@ -6,21 +6,30 @@
 #    By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/03 12:03:20 by cescobio          #+#    #+#              #
-#    Updated: 2026/03/11 15:30:04 by cescobio         ###   ########.fr        #
+#    Updated: 2026/03/11 15:44:06 by cescobio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS := #-Werror -Wall -Wextra
 PROGRAM = push_swap
 
-SRC = main.c parsing.c stack_utils.c operations/swap.c operations/push.c operations/rotate.c operations/reverse_rotate.c algorithms/simple_sort.c
+SRC = main.c \
+	parsing.c \
+	stack_utils.c \
+	operations/swap.c \
+	operations/push.c \
+	operations/rotate.c \
+	operations/reverse_rotate.c \
+	flags.c \
+	algorithm_selector.c \
+	bench.c
 OBJ = $(SRC:.c=.o)
 
 #shuf es un comando muy chungo, nos interesa para generar números aleatorios
 #con las flags "-n" y "-i".
-SHUF_FILE = args.txt #archivo donde se guardan. 
+SHUF_FILE = args.txt #archivo donde se guardan.
 SHUF_RANGE = 1-100 #rango de números a elegir.
 SHUF_AMOUNT = 10 #cantidad de números final.
 #Por defecto shuf elige números *sin repetir*.

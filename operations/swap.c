@@ -3,60 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 13:59:11 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/07 13:23:16 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:08:03 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-//intercambia los dos primeros nodos del stack
-void  swap(t_stack *stack)
+void	swap(t_stack *stack)
 {
-    t_node  *first;
-    t_node  *second;
+	t_node	*first;
+	t_node	*second;
 
-     //si no existe o tiene menos de 2 nodos no movemos nada
-    if (!stack || stack->size < 2)
-        return ;
-    
-    //guardamos los dos primeros nodos
-    first = stack->top;
-    second = first->next;
-
-    //quitamos temporalmente second de la lista
-    first->next = second->next;
-
-    //si hay un nodo después de second, corregimos su prev
-    if(second->next)
-        second->next->prev = first;
-    
-    //colocamos second delante de first
-    second->next = first;
-    first->prev = second;
-    second->prev = NULL;
-
-    //actualizamos el top del stack
-    stack->top = second;
+	if (!stack || stack->size < 2)
+		return ;
+	first = stack->top;
+	second = first->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->next = first;
+	first->prev = second;
+	second->prev = NULL;
+	stack->top = second;
 }
 
-void sa(t_stack *a)
+void	sa(t_stack *a)
 {
-    swap(a);
-    write (1, "sa\n", 3);
+	swap(a);
+	write(1, "sa\n", 3);
+	a->total_ops++;
+	a->sa++;
 }
 
-void sb(t_stack *b)
+void	sb(t_stack *b)
 {
-    swap(b);
-    write (1, "sb\n", 3);
+	swap(b);
+	write(1, "sb\n", 3);
+	b->total_ops++;
+	b->sb++;
 }
 
-void ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
-    swap(a);
-    swap(b);
-    write (1, "ss\n", 3);
+	swap(a);
+	swap(b);
+	write(1, "ss\n", 3);
+	a->total_ops++;
+	a->ss++;
 }
