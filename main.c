@@ -6,7 +6,7 @@
 /*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:25:00 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/10 14:59:35 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/11 15:27:43 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 
     ft_assign_index(&a);
 
-    simple_sort(&a, &b);
+    insertion_sort(&a, &b);
 
     return (0);
 }
