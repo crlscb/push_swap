@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 13:01:12 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/11 15:07:37 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/11 16:22:04 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,11 @@ void	ft_parse_numbers(int argc, char **argv, t_stack *a)
 {
 	int	i;
 	int	value;
-	int	is_flag;
 
 	i = 1;
 	while (i < argc)
 	{
-		is_flag = 0;
-		is_flag = ft_strategy_flag(argv[i], a);
-		is_flag = ft_bench_flag(argv[i], a);
-		if (is_flag)
+		if (ft_strategy_flag(argv[i], a) || ft_bench_flag(argv[i], a))
 		{
 			i++;
 			continue ;

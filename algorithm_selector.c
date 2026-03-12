@@ -3,18 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_selector.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/11 15:28:08 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/12 13:51:37 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/push_swap.h"
 
-int	simple_sort(t_stack *a)
+void	simple_sort(t_stack *a)
 {
-	return (0);
+	t_stack b;
+
+	b.top = NULL;
+	b.size = 0;
+
+	insertion_sort(a, &b);
 }
 
 int	medium_sort(t_stack *a)
@@ -33,15 +38,34 @@ void	ft_select_algorithm(t_stack *a)
 
 	a->disorder = ft_compute_disorder(a);
 	if (a->strategy == 1)
+	{
+		printf("Algoritmo seleccionado: simple_sort\n");
 		simple_sort(a);
+	}
 	else if (a->strategy == 2)
+	{
+		printf("Algoritmo seleccionado: medium_sort\n");
 		medium_sort(a);
+	}
 	else if (a->strategy == 3)
+	{
+		printf("Algoritmo seleccionado: complex_sort\n");
 		complex_sort(a);
+	}
 	else if (a->disorder < 0.2)
+	{
+		printf("Algoritmo seleccionado: simple_sort\n");
 		simple_sort(a);
+	}
+		
 	else if (a->disorder < 0.5)
+	{
+		printf("Algoritmo seleccionado: medium_sort\n");
 		medium_sort(a);
+	}
 	else if (a->disorder >= 0.5)
+	{
+		printf("Algoritmo seleccionado: complex_sort\n");
 		complex_sort(a);
+	}
 }
