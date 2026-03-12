@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bench.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 15:19:31 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/11 15:24:38 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/11 16:17:22 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-include "include/push_swap.h"
+#include "include/push_swap.h"
 
 void	ft_print_bench(t_stack a, t_stack b)
 {
