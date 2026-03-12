@@ -6,7 +6,7 @@
 #    By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/03 12:03:20 by cescobio          #+#    #+#              #
-#    Updated: 2026/03/11 15:44:06 by cescobio         ###   ########.fr        #
+#    Updated: 2026/03/11 16:14:39 by cescobio         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC = main.c \
 	operations/reverse_rotate.c \
 	flags.c \
 	algorithm_selector.c \
-	bench.c
+	bench.c \
+	algorithms/simple_sort.c
 OBJ = $(SRC:.c=.o)
 
 #shuf es un comando muy chungo, nos interesa para generar números aleatorios

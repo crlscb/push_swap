@@ -6,7 +6,7 @@
 /*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:48:42 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/11 15:33:55 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/12 11:45:06 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	insertion_sort(t_stack *a, t_stack *b)
 	while (b->size > 0)
 		pa(a, b);
 }
-// busccar valor más pequeño y devolver su posición
+// buscar valor más pequeño y devolver su posición
 int	find_min(t_stack *a)
 {
 	int		min;
@@ -36,7 +36,7 @@ int	find_min(t_stack *a)
 	int		i;
 	t_node	*tmp;
 
-	tmp = tmp->top;
+	tmp = a->top;
 	min = tmp->value;
 	min_index = 0;
 	i = 0;
@@ -53,22 +53,22 @@ int	find_min(t_stack *a)
 	}
 	return (min_index);
 }
-// void	rotate_top(t_stack *a, int index)
-// {
-// 	int moves;
+void	rotate_top(t_stack *a, int index)
+{
+	int moves;
 
-//     //si índice está en la primera mitad del stack
-//     if (index <= a->size / 2)
-//     {
-//         //rotamos hacia arriba (ra)
-//         while (index--)
-//             ra(a);
-//     }
-//     else
-//     {
-//         //si estamos más cerca del final (reverse rotate)
-//         moves = a->size - index;
-//         while (moves--)
-//             rra(a);
-//     }
-// }
+    //si índice está en la primera mitad del stack
+    if (index <= a->size / 2)
+    {
+        //rotamos hacia arriba (ra)
+        while (index--)
+            ra(a);
+    }
+    else
+    {
+        //si estamos más cerca del final (reverse rotate)
+        moves = a->size - index;
+        while (moves--)
+            rra(a);
+    }
+}
