@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:29:00 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/17 14:53:26 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 15:02:39 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int	strict_atoi(char *str)
 	long	nb;
 
 	if (!is_valid_number(str))
-		error();
+		error(NULL, NULL);
 	nb = ft_atoi(str);
 	if (nb > 2147483647 || nb < -2147483648)
-		error();
+		error(NULL, NULL);
 	return ((int)nb);
 }

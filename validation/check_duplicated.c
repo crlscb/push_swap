@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:36:16 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 12:03:29 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 15:03:06 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	check_duplicated(t_stack *a)
 		while (compare)
 		{
 			if (current->value == compare->value)
-				error();
+				error(NULL, NULL);
 			compare = compare->next;
 		}
 		current = current->next;

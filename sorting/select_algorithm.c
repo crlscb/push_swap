@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/17 14:55:35 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 15:01:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	select_algorithm(t_stack *a, t_stack *b)
 	else if (a->strategy == 3)
 	{
 		printf("Algoritmo seleccionado: complex_sort\n");
+		complex_sort(a, b);
 	}
 	else if (a->disorder < 0.2)
 	{
@@ -43,5 +44,6 @@ void	select_algorithm(t_stack *a, t_stack *b)
 	else if (a->disorder >= 0.5)
 	{
 		printf("Algoritmo seleccionado: complex_sort\n");
+		complex_sort(a, b);
 	}
 }

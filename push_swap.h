@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:38:18 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/17 14:54:16 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 15:00:42 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ void	simple_sort(t_stack *a, t_stack *b);
 int		find_min(t_stack *a);
 void	rotate_top(t_stack *a, int index);
 void	medium_sort(t_stack *a, t_stack *b);
+void	complex_sort(t_stack *a, t_stack *b);
 
 #endif
