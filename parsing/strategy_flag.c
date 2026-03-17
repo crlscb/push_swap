@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   strategy_flag.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:33:08 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 12:08:45 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 12:32:05 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int	strategy_flag(char *str, t_stack *a)
 		a->strategy = 3;
 		return (1);
 	}
+	if (!ft_strncmp(str, "--adaptive"))
+		return (1);
 	return (0);
 }

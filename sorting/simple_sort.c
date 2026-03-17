@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 12:48:42 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/12 14:15:58 by cescobio         ###   ########.fr       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2026/03/17 14:46:15 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+
+#include "../push_swap.h"
 
 // 3 - 10 numeros
 // encuentra el num más pequeño y lo intercambia con el primer elemento
-void	insertion_sort(t_stack *a, t_stack *b)
+void	simple_sort(t_stack *a, t_stack *b)
 {
 	int	min;
 
