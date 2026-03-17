@@ -6,7 +6,7 @@
 /*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:25:00 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/12 13:45:33 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/12 14:16:27 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,43 +32,41 @@ void	init_stack(t_stack *s)
 	s->rrr = 0;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_stack a;
-    t_stack b;
-    t_node *tmp;
-    int min_index;
-    int i;
+	t_stack a;
+	t_stack b;
+	t_node *tmp;
+	int min_index;
+	int i;
 
-    init_stack(&a);
-    init_stack(&b);
+	init_stack(&a);
+	init_stack(&b);
 
-    if (argc < 2)
-        return (0);
+	if (argc < 2)
+		return (0);
 
-    ft_parse_numbers(argc, argv, &a);
-    ft_check_duplicated(&a);
+	ft_parse_numbers(argc, argv, &a);
+	ft_check_duplicated(&a);
 
 	i = 0;
 	tmp = a.top;
 	min_index = find_min(&a);
-    while (tmp)
-    {
-        if (i == min_index)
-            printf("min value: %d\n", tmp->value);
-        tmp = tmp->next;
-        i++;
-    }
-	
+	while (tmp)
+	{
+		if (i == min_index)
+			printf("min value: %d\n", tmp->value);
+		tmp = tmp->next;
+		i++;
+	}
 	ft_select_algorithm(&a);
 	printf("moves: %d\n", a.total_ops);
-
 	printf("| Stack a ordenado | \n");
-    tmp = a.top;
-    while (tmp)
-    {
-        printf("| value: %d | \n", tmp->value);
-        tmp = tmp->next;
-    }
-    return (0);
+	tmp = a.top;
+	while (tmp)
+	{
+		printf("| value: %d | \n", tmp->value);
+		tmp = tmp->next;
+	}
+	return (0);
 }

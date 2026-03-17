@@ -6,7 +6,7 @@
 /*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/12 13:51:37 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/12 14:14:29 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	simple_sort(t_stack *a)
 {
-	t_stack b;
+	t_stack	b;
 
 	b.top = NULL;
 	b.size = 0;
-
 	insertion_sort(a, &b);
 }
 
@@ -57,7 +56,6 @@ void	ft_select_algorithm(t_stack *a)
 		printf("Algoritmo seleccionado: simple_sort\n");
 		simple_sort(a);
 	}
-		
 	else if (a->disorder < 0.5)
 	{
 		printf("Algoritmo seleccionado: medium_sort\n");

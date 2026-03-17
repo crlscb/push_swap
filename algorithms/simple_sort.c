@@ -6,7 +6,7 @@
 /*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:48:42 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/12 12:54:41 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/12 14:15:58 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,19 @@ void	rotate_top(t_stack *a, int index)
 {
 	int moves;
 
-    //si índice está en la primera mitad del stack
-    if (index <= a->size / 2) // si el número está más cerca del prinicpio del stack que del final
-    {
-        //rotamos hacia arriba (ra)
-        while (index--)
+	// si índice está en la primera mitad del stack
+	if (index <= a->size / 2)
+		// si el número está más cerca del prinicpio del stack que del final
+	{
+		// rotamos hacia arriba (ra)
+		while (index--)
 			ra(a);
-    }
-    else
-    {
-        //si estamos más cerca del final (reverse rotate)
-        moves = a->size - index;
-        while (moves--)
-            rra(a);
-    }
+	}
+	else
+	{
+		// si estamos más cerca del final (reverse rotate)
+		moves = a->size - index;
+		while (moves--)
+			rra(a);
+	}
 }
