@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:38:18 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/17 11:53:40 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 12:23:59 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,7 @@ void				rotate_top(t_stack *a, int index);
 /*    SORTING    */
 void	select_algorithm(t_stack *a, t_stack *b);
 void	medium_sort(t_stack *a, t_stack *b);
+void	simple_sort(t_stack *a, t_stack *b);
+
 
 #endif
