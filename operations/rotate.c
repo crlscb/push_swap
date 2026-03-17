@@ -6,11 +6,11 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:00:23 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/11 15:08:13 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/12 11:57:47 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../push_swap.h"
 
 void	rotate(t_stack *stack)
 {

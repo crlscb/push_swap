@@ -3,35 +3,52 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+         #
+#    By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/03 12:03:20 by cescobio          #+#    #+#              #
-#    Updated: 2026/03/11 15:44:06 by cescobio         ###   ########.fr        #
+#    Updated: 2026/03/16 09:47:48 by damiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
-CFLAGS := #-Werror -Wall -Wextra
+CFLAGS := -Werror -Wall -Wextra
 PROGRAM = push_swap
 
 SRC = main.c \
-	parsing.c \
-	stack_utils.c \
-	operations/swap.c \
+	bench.c \
 	operations/push.c \
-	operations/rotate.c \
 	operations/reverse_rotate.c \
-	flags.c \
-	algorithm_selector.c \
-	bench.c
+	operations/rotate.c \
+	operations/swap.c \
+	parsing/bench_flag.c \
+	parsing/error.c \
+	parsing/parse_numbers.c \
+	parsing/strategy_flag.c \
+	sorting/adaptive_sort.c \
+	sorting/select_algorithm.c \
+	sorting/complex_sort.c \
+	sorting/medium_sort.c \
+	sorting/simple_sort.c \
+	stack/add_node_back.c \
+	stack/compute_disorder.c \
+	stack/create_node.c \
+	stack/init_stack.c \
+	stack/print_stack.c \
+	stack/free_stack.c \
+	utils/strict_atoi.c \
+	utils/ft_strncmp.c \
+	utils/estimate_sqrt.c \
+	validation/check_duplicated.c \
+	validation/is_order.c \
+	validation/is_valid_number.c
 OBJ = $(SRC:.c=.o)
 
 #shuf es un comando muy chungo, nos interesa para generar números aleatorios
 #con las flags "-n" y "-i".
 SHUF_FILE = args.txt #archivo donde se guardan.
-SHUF_RANGE = 1-100 #rango de números a elegir.
-SHUF_AMOUNT = 10 #cantidad de números final.
+SHUF_RANGE = 1-10000 #rango de números a elegir.
+SHUF_AMOUNT = 2000 #cantidad de números final.
 #Por defecto shuf elige números *sin repetir*.
 
 #SRC = ""
@@ -59,8 +76,11 @@ shuf:
 #Estos comandos son copiados del PDF.
 #En "args.txt" están los números generados por el comando shuf.
 #Cada número pasa al programa como un argumento diferente.
-simple:
+default:
 	./$(PROGRAM) $$(cat args.txt)
+
+simple:
+	./$(PROGRAM) --simple $$(cat args.txt)
 
 medium:
 	./$(PROGRAM) --medium $$(cat args.txt)

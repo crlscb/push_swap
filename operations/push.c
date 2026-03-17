@@ -6,11 +6,11 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 13:59:58 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/11 15:07:53 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/12 11:58:52 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../push_swap.h"
 
 void	push(t_stack *from, t_stack *to)
 {
