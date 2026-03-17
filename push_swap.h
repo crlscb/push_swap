@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:38:18 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/17 11:53:40 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 11:54:02 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,9 @@ void	rrr(t_stack *a, t_stack *b);
 
 /*    ALGORITHMS    */
 // simple_sort.c
-void				insertion_sort(t_stack *a, t_stack *b);
-int					find_min(t_stack *a);
-void				rotate_top(t_stack *a, int index);
+void	insertion_sort(t_stack *a, t_stack *b);
+int		find_min(t_stack *a);
+void	rotate_top(t_stack *a, int index);
 /*    SORTING    */
 void	select_algorithm(t_stack *a, t_stack *b);
 void	medium_sort(t_stack *a, t_stack *b);
