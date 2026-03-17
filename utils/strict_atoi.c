@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:29:00 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 12:03:17 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 14:53:26 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static long	ft_atoi(const char *str)
 	}
 	return (result * sign);
 }
-
 
 int	strict_atoi(char *str)
 {

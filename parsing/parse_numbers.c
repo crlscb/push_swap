@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:32:02 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/16 10:22:27 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/17 14:51:26 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	update_minmax(t_stack *s, int n)
 		s->max = n;
 }
 
-void	parse_numbers(int argc, char **argv, t_stack *a)
+void	parse_numbers(int argc, char **argv, t_stack *a, t_stack *b)
 {
 	int	i;
 	int	value;
@@ -36,7 +36,7 @@ void	parse_numbers(int argc, char **argv, t_stack *a)
 			continue ;
 		}
 		else if (!is_valid_number(argv[i]))
-			error();
+			error(a, b);
 		value = strict_atoi(argv[i]);
 		add_node_back(a, value);
 		if (i == 1)
