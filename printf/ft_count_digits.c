@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_count_digits.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: damiguel <damiguel@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 09:44:25 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 13:55:05 by damiguel         ###   ########.fr       */
+/*   Created: 2026/02/05 12:27:14 by damiguel          #+#    #+#             */
+/*   Updated: 2026/02/05 12:38:56 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "ft_printf.h"
 
-void	print_stack(t_stack *s)
+int	ft_count_digits(long n, int base)
 {
-	t_node	*temp;
+	int	i;
 
-	temp = s->top;
-	while (temp)
+	i = 0;
+	if (n < 0)
+		n *= -1;
+	while (n >= base)
 	{
-		ft_printf(1, "value: %d | index: %d\n", temp->value, temp->index);
-		temp = temp->next;
+		n = n / base;
+		i++;
 	}
+	return (i + 1);
 }

@@ -6,11 +6,12 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 14:00:23 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/12 11:57:47 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 13:52:29 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "../printf/ft_printf.h"
 
 void	rotate(t_stack *stack)
 {
@@ -33,7 +34,7 @@ void	rotate(t_stack *stack)
 void	ra(t_stack *a)
 {
 	rotate(a);
-	write(1, "ra\n", 3);
+	ft_printf(1, "ra\n");
 	a->total_ops++;
 	a->ra++;
 }
@@ -41,7 +42,7 @@ void	ra(t_stack *a)
 void	rb(t_stack *b)
 {
 	rotate(b);
-	write(1, "rb\n", 3);
+	ft_printf(1, "rb\n");
 	b->total_ops++;
 	b->rb++;
 }
@@ -50,7 +51,7 @@ void	rr(t_stack *a, t_stack *b)
 {
 	rotate(a);
 	rotate(b);
-	write(1, "rr\n", 3);
+	ft_printf(1, "rr\n");
 	a->total_ops++;
 	a->rr++;
 }

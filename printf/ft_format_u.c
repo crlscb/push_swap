@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_format_u.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 09:44:25 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 13:55:05 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/31 12:19:49 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:48:27 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "ft_printf.h"
 
-void	print_stack(t_stack *s)
+static void	ft_putunbr_fd(unsigned int n, int fd)
 {
-	t_node	*temp;
+	if (n >= 10)
+		ft_putunbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
+}
 
-	temp = s->top;
-	while (temp)
-	{
-		ft_printf(1, "value: %d | index: %d\n", temp->value, temp->index);
-		temp = temp->next;
-	}
+int	ft_format_u(unsigned int n, int fd)
+{
+	int	digits;
+
+	digits = ft_count_digits((unsigned int)n, 10);
+	ft_putunbr_fd(n, fd);
+	return (digits);
 }

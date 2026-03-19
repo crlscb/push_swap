@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 12:25:00 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 12:21:19 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 14:59:11 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 static void	do_sort(t_stack *a, t_stack *b)
 {
 	select_algorithm(a, b);
-	// printf("Stack a\n");
-	// print_stack(a);
 	if (a->bench)
 		print_bench(a, b);
 }

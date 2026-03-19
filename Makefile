@@ -6,7 +6,7 @@
 #    By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/03 12:03:20 by cescobio          #+#    #+#              #
-#    Updated: 2026/03/17 11:52:39 by damiguel         ###   ########.fr        #
+#    Updated: 2026/03/19 13:04:09 by damiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,59 +51,31 @@ SHUF_RANGE = 1-10000 #rango de números a elegir.
 SHUF_AMOUNT = 2000 #cantidad de números final.
 #Por defecto shuf elige números *sin repetir*.
 
-#SRC = ""
-#OUT = $(SRC:.c=.o)
+PRINTF_DIR = printf
+PRINTF_LIB = $(PRINTF_DIR)/libftprintf.a
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+$(PRINTF_LIB):
+	$(MAKE) -C $(PRINTF_DIR)
+
+$(NAME): $(OBJ) $(PRINTF_LIB)
+	$(CC) $(CFLAGS) $(OBJ) $(PRINTF_LIB) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)
+	rm -rf printf/*.o
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf printf/*.a
 
 re: fclean all
 
-shuf:
-	shuf -i $(SHUF_RANGE) -n $(SHUF_AMOUNT) > $(SHUF_FILE)
-
-#Estos comandos son copiados del PDF.
-#En "args.txt" están los números generados por el comando shuf.
-#Cada número pasa al programa como un argumento diferente.
-default:
-	./$(PROGRAM) $$(cat args.txt)
-
-simple:
-	./$(PROGRAM) --simple $$(cat args.txt)
-
-medium:
-	./$(PROGRAM) --medium $$(cat args.txt)
-
-complex:
-	./$(PROGRAM) --complex $$(cat args.txt)
-
-adaptive:
-	./$(PROGRAM) --adaptive $$(cat args.txt)
-
-bench_simple:
-	./$(PROGRAM) --simple --bench $$(cat args.txt)
-
-bench_medium:
-	./$(PROGRAM) --medium --bench $$(cat args.txt)
-
-bench_complex:
-	./$(PROGRAM) --complex --bench $$(cat args.txt)
-
-bench_adaptive:
-	./$(PROGRAM) --adaptive --bench $$(cat args.txt)
-
-.PHONY: all clean fclean re shuf simple medium complex adaptive
+.PHONY: all clean fclean re
 
 #checker del PDF que no sé ni lo que hace
 #checker:

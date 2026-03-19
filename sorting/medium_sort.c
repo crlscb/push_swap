@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:48:26 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 12:01:38 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 13:55:24 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ static void	iterate_chunk(t_stack *a, t_stack *b, int min, int max)
 	{
 		if (a->top->value >= min && a->top->value < max)
 		{
-			printf("Pushing %d\n", a->top->value);
 			pb(a, b);
 			elements_added++;
 		}
@@ -87,7 +86,6 @@ void	medium_sort(t_stack *a, t_stack *b)
 
 	chunks = estimate_sqrt(a->size);
 	range = (a->max - a->min) / chunks;
-	printf("chunk: %d\nrange: %d\n", chunks,range);
 	i = 0;
 	while (i <= chunks && a->size > 0)
 	{

@@ -6,11 +6,12 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 13:59:58 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/12 11:58:52 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 13:52:34 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "../printf/ft_printf.h"
 
 void	push(t_stack *from, t_stack *to)
 {
@@ -34,7 +35,7 @@ void	push(t_stack *from, t_stack *to)
 void	pa(t_stack *a, t_stack *b)
 {
 	push(b, a);
-	write(1, "pa\n", 3);
+	ft_printf(1, "pa\n");
 	a->total_ops++;
 	a->pa++;
 }
@@ -42,7 +43,7 @@ void	pa(t_stack *a, t_stack *b)
 void	pb(t_stack *a, t_stack *b)
 {
 	push(a, b);
-	write(1, "pb\n", 3);
+	ft_printf(1, "pb\n");
 	a->total_ops++;
 	a->pb++;
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_format_d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 09:44:25 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 13:55:05 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/31 12:19:49 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:47:21 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "ft_printf.h"
 
-void	print_stack(t_stack *s)
+int	ft_format_d(int n, int fd)
 {
-	t_node	*temp;
+	int	digits;
+	int	c_count;
+	int	num;
 
-	temp = s->top;
-	while (temp)
-	{
-		ft_printf(1, "value: %d | index: %d\n", temp->value, temp->index);
-		temp = temp->next;
-	}
+	num = n;
+	digits = ft_count_digits(num, 10);
+	c_count = digits;
+	if (num < 0)
+		c_count += 1;
+	ft_putnbr_fd(num, fd);
+	return (c_count);
 }

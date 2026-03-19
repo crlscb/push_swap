@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_handleformat.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 09:44:25 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 13:55:05 by damiguel         ###   ########.fr       */
+/*   Created: 2026/02/02 12:39:48 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:46:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "ft_printf.h"
 
-void	print_stack(t_stack *s)
+void	ft_handleformat(char format, va_list ap, int *count, int fd)
 {
-	t_node	*temp;
+	int	i;
 
-	temp = s->top;
-	while (temp)
+	i = 0;
+	i += ft_printparam(format, ap, fd);
+	if (i == -1)
 	{
-		ft_printf(1, "value: %d | index: %d\n", temp->value, temp->index);
-		temp = temp->next;
+		*count = -1;
+		return ;
 	}
+	*count += i;
 }

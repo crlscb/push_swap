@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:32:02 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 11:37:07 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 14:58:00 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	update_minmax(t_stack *s, int n)
 {
-	if (!s || !n)
+	if (!s)
 		return ;
 	if (n < s->min)
 		s->min = n;

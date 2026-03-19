@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 09:44:25 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 13:55:05 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/31 18:47:50 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:49:23 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "ft_printf.h"
 
-void	print_stack(t_stack *s)
+void	ft_putnbr_hex(uintptr_t n, int to_upper, int fd)
 {
-	t_node	*temp;
+	char	*base;
+	char	*upper_base;
 
-	temp = s->top;
-	while (temp)
-	{
-		ft_printf(1, "value: %d | index: %d\n", temp->value, temp->index);
-		temp = temp->next;
-	}
+	base = "0123456789abcdef";
+	upper_base = "0123456789ABCDEF";
+	if (n >= 16)
+		ft_putnbr_hex(n / 16, to_upper, fd);
+	if (to_upper)
+		write(fd, &upper_base[n % 16], 1);
+	else
+		write(fd, &base[n % 16], 1);
 }
