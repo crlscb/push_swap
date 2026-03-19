@@ -6,7 +6,7 @@
 #    By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/03 12:03:20 by cescobio          #+#    #+#              #
-#    Updated: 2026/03/19 13:04:09 by damiguel         ###   ########.fr        #
+#    Updated: 2026/03/19 16:29:12 by damiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = main.c \
 	parsing/error.c \
 	parsing/parse_numbers.c \
 	parsing/strategy_flag.c \
+	parsing/ft_split.c \
 	sorting/adaptive_sort.c \
 	sorting/select_algorithm.c \
 	sorting/complex_sort.c \
@@ -39,6 +40,7 @@ SRC = main.c \
 	utils/strict_atoi.c \
 	utils/ft_strncmp.c \
 	utils/estimate_sqrt.c \
+	utils/ft_strlcpy.c \
 	validation/check_duplicated.c \
 	validation/is_order.c \
 	validation/is_valid_number.c

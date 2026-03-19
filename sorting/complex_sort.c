@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:48:29 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 11:45:13 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 17:12:39 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static int	get_max_bits(t_stack *a)
 	while ((max_index >> max_bits) != 0)
 		max_bits++;
 	return (max_bits);
-
 }
 
 void	complex_sort(t_stack *a, t_stack *b)

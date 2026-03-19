@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/11 15:19:31 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 15:03:30 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 17:13:34 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	print_bench(t_stack *a, t_stack *b)
 	ft_printf(2, "[bench] disorder: %D%%\n", (a->disorder * 100));
 	ft_printf(2, "[bench] strategy: %s\n", strategy);
 	ft_printf(2, "[bench] total_ops: %d\n", a->total_ops);
-	ft_printf(2, "[bench] sa: %d sb: %d ss: %d", a->sa + b->sa, a->sb + b->sb, a->ss
-		+ b->ss);
+	ft_printf(2, "[bench] sa: %d sb: %d ss: %d", a->sa + b->sa, a->sb
+		+ b->sb, a->ss + b->ss);
 	ft_printf(2, " pa: %d pb: %d\n", a->pa + b->pa, a->pb + b->pb);
 	ft_printf(2, "[bench] ra: %d rb: %d", a->ra + b->ra, a->rb + b->rb);
 	ft_printf(2, " rr: %d rra: %d", a->rr + b->rr, a->rra + b->rra);
