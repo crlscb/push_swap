@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:48:26 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/16 09:41:41 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 12:01:38 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	sort_chunks(t_stack *a, t_stack *b)
 	while (b->top)
 	{
 		max_value = get_max_value(b, &distance);
-		if (distance <= b->size / 2)
+		if (distance < b->size / 2)
 			while (b->top->value != max_value)
 				rb(b);
 		else
@@ -68,6 +68,7 @@ static void	iterate_chunk(t_stack *a, t_stack *b, int min, int max)
 	{
 		if (a->top->value >= min && a->top->value < max)
 		{
+			printf("Pushing %d\n", a->top->value);
 			pb(a, b);
 			elements_added++;
 		}
@@ -86,12 +87,11 @@ void	medium_sort(t_stack *a, t_stack *b)
 
 	chunks = estimate_sqrt(a->size);
 	range = (a->max - a->min) / chunks;
+	printf("chunk: %d\nrange: %d\n", chunks,range);
 	i = 0;
 	while (i <= chunks && a->size > 0)
 	{
 		min_range = a->min + (i * range);
-		if (i == chunks)
-			min_range++;
 		iterate_chunk(a, b, min_range, min_range + range);
 		i++;
 	}

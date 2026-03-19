@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:38:18 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/17 15:00:42 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:34:34 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ void	free_stack(t_stack *s);
 void	print_stack(t_stack *s);
 
 /*       UTILS       */
-int		strict_atoi(char *str);
+int		strict_atoi(char *str, t_stack *a, t_stack *b);
 int		ft_strncmp(const char *s1, const char *s2);
 int		estimate_sqrt(int n);
 
 /*     VALIDATION    */
-void	check_duplicated(t_stack *a);
+int		check_duplicated(t_stack *a);
 int		is_order(t_stack *a);
 int		is_valid_number(char *str);
 

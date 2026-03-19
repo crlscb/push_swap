@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_numbers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:32:02 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/18 18:58:35 by cescobio         ###   ########.fr       */
+/*   Updated: 2026/03/19 11:37:07 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	parse_numbers(int argc, char **argv, t_stack *a, t_stack *b)
 		}
 		else if (!is_valid_number(argv[i]))
 			error(a, b);
-		value = strict_atoi(argv[i]);
+		value = strict_atoi(argv[i], a, b);
 		add_node_back(a, value);
 		if (i == 1)
 		{
