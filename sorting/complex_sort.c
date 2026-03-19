@@ -3,49 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   complex_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: cescobio <cescobio@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:48:29 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/17 15:25:43 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/18 16:50:42 by cescobio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	get_max_digits(int min, int max)
+static void	assign_index(t_stack *a)
 {
-	int	digits;
+	t_node	*current;
+	t_node	*compare;
+	int		index;
 
-	if (!min && !max)
-		return (0);
-	digits = 1;
-	while (max >= 10 || min <= -10)
+	current = a->top;
+	while (current)
 	{
-		digits++;
-		max = max / 10;
-		min = min / 10;
-		printf("max: %d\nmin: %d\n", max, min);
+		index = 0;
+		compare = a->top;
+		while (compare)
+		{
+			if (compare->value < current->value)
+				index++;
+			compare = compare->next;
+		}
+		current->index = index;
+		current = current->next;
 	}
-	return (digits);
 }
 
-static void	set_index(t_stack *a)
+static int	get_max_bits(t_stack *a)
 {
-	t_node *tmp;
+	int	max_bits;
+	int	max_index;
 
-	tmp = a->top;
-	while (tmp)
-	{
-		tmp->index = tmp->value % 10;
-		tmp = tmp->next;
-	}
+	max_bits = 0;
+	max_index = a->size - 1;
+	while ((max_index >> max_bits) != 0)
+		max_bits++;
+	printf("Max bits: %d\n", max_bits);
+	return (max_bits);
+	
 }
 
 void	complex_sort(t_stack *a, t_stack *b)
 {
-	int	max_digits;
+	int	max_bits;
+	int	bit;
+	int	i;
+	int	size;
 
-	max_digits = get_max_digits(a->min, a->max);
-	set_index(a);
-	(void) b;
+	assign_index(a);
+	max_bits = get_max_bits(a);
+	bit = 0;
+	while (bit < max_bits)
+	{
+		size = a->size;
+		i = 0;
+		while (i < size)
+		{
+			if (((a->top->index >> bit) & 1) == 0)
+				pb(a, b);
+			else
+				ra(a);
+			i++;
+		}
+		while (b->size > 0)
+			pa(a, b);
+		bit++;
+	}
 }
