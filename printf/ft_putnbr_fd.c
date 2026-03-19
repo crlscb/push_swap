@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_algorithm.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 17:06:22 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/20 10:52:55 by damiguel          #+#    #+#             */
+/*   Updated: 2026/02/24 11:34:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	select_algorithm(t_stack *a, t_stack *b)
+void	ft_putnbr_fd(int n, int fd)
 {
-	a->disorder = compute_disorder(a);
-	if (a->strategy == 1)
-		simple_sort(a, b);
-	else if (a->strategy == 2)
-		medium_sort(a, b);
-	else if (a->strategy == 3)
-		complex_sort(a, b);
-	else if (a->disorder < 0.2)
-		simple_sort(a, b);
-	else if (a->disorder < 0.5)
-		medium_sort(a, b);
-	else if (a->disorder >= 0.5)
-		complex_sort(a, b);
+	long	num;
+	char	c;
+
+	num = n;
+	if (num == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
+	if (num < 0)
+	{
+		write(fd, "-", 1);
+		num *= -1;
+	}
+	if (num >= 10)
+		ft_putnbr_fd(num / 10, fd);
+	c = (num % 10) + '0';
+	write(fd, &c, 1);
 }

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_algorithm.c                                 :+:      :+:    :+:   */
+/*   ft_format_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 17:06:22 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/31 12:22:02 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:48:36 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	select_algorithm(t_stack *a, t_stack *b)
+int	ft_format_x(int n, int to_upper, int fd)
 {
-	a->disorder = compute_disorder(a);
-	if (a->strategy == 1)
-		simple_sort(a, b);
-	else if (a->strategy == 2)
-		medium_sort(a, b);
-	else if (a->strategy == 3)
-		complex_sort(a, b);
-	else if (a->disorder < 0.2)
-		simple_sort(a, b);
-	else if (a->disorder < 0.5)
-		medium_sort(a, b);
-	else if (a->disorder >= 0.5)
-		complex_sort(a, b);
+	unsigned int	result;
+	int				digits;
+
+	digits = 0;
+	result = -1;
+	if (n < 0)
+		result = result + (n + 1);
+	else
+		result = n;
+	digits += ft_count_digits(result, 16);
+	ft_putnbr_hex(result, to_upper, fd);
+	return (digits);
 }

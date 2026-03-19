@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_algorithm.c                                 :+:      :+:    :+:   */
+/*   ft_format_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 17:06:22 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/31 12:19:24 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:48:21 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	select_algorithm(t_stack *a, t_stack *b)
+static int	ft_print_format(char *str, int fd)
 {
-	a->disorder = compute_disorder(a);
-	if (a->strategy == 1)
-		simple_sort(a, b);
-	else if (a->strategy == 2)
-		medium_sort(a, b);
-	else if (a->strategy == 3)
-		complex_sort(a, b);
-	else if (a->disorder < 0.2)
-		simple_sort(a, b);
-	else if (a->disorder < 0.5)
-		medium_sort(a, b);
-	else if (a->disorder >= 0.5)
-		complex_sort(a, b);
+	int		str_len;
+
+	str_len = 0;
+	str_len += ft_strlen(str);
+	if (!str)
+	{
+		str_len += 6;
+		str = "(null)";
+	}
+	ft_putstr_fd(str, fd);
+	return (str_len);
+}
+
+int	ft_format_s(char *str, int fd)
+{
+	int	res_len;
+
+	res_len = 0;
+	res_len = ft_print_format(str, fd);
+	return (res_len);
 }

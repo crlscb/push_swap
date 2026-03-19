@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_algorithm.c                                 :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 17:06:22 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/31 18:47:50 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:49:23 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	select_algorithm(t_stack *a, t_stack *b)
+void	ft_putnbr_hex(uintptr_t n, int to_upper, int fd)
 {
-	a->disorder = compute_disorder(a);
-	if (a->strategy == 1)
-		simple_sort(a, b);
-	else if (a->strategy == 2)
-		medium_sort(a, b);
-	else if (a->strategy == 3)
-		complex_sort(a, b);
-	else if (a->disorder < 0.2)
-		simple_sort(a, b);
-	else if (a->disorder < 0.5)
-		medium_sort(a, b);
-	else if (a->disorder >= 0.5)
-		complex_sort(a, b);
+	char	*base;
+	char	*upper_base;
+
+	base = "0123456789abcdef";
+	upper_base = "0123456789ABCDEF";
+	if (n >= 16)
+		ft_putnbr_hex(n / 16, to_upper, fd);
+	if (to_upper)
+		write(fd, &upper_base[n % 16], 1);
+	else
+		write(fd, &base[n % 16], 1);
 }

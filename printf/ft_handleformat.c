@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_algorithm.c                                 :+:      :+:    :+:   */
+/*   ft_handleformat.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 17:06:22 by damiguel         ###   ########.fr       */
+/*   Created: 2026/02/02 12:39:48 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 13:46:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	select_algorithm(t_stack *a, t_stack *b)
+void	ft_handleformat(char format, va_list ap, int *count, int fd)
 {
-	a->disorder = compute_disorder(a);
-	if (a->strategy == 1)
-		simple_sort(a, b);
-	else if (a->strategy == 2)
-		medium_sort(a, b);
-	else if (a->strategy == 3)
-		complex_sort(a, b);
-	else if (a->disorder < 0.2)
-		simple_sort(a, b);
-	else if (a->disorder < 0.5)
-		medium_sort(a, b);
-	else if (a->disorder >= 0.5)
-		complex_sort(a, b);
+	int	i;
+
+	i = 0;
+	i += ft_printparam(format, ap, fd);
+	if (i == -1)
+	{
+		*count = -1;
+		return ;
+	}
+	*count += i;
 }

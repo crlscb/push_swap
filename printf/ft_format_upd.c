@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   select_algorithm.c                                 :+:      :+:    :+:   */
+/*   ft_format_upd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/07 10:04:31 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 17:06:22 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/19 14:03:19 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/19 15:08:53 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "ft_printf.h"
 
-void	select_algorithm(t_stack *a, t_stack *b)
+int	ft_format_upd(double n, int fd)
 {
-	a->disorder = compute_disorder(a);
-	if (a->strategy == 1)
-		simple_sort(a, b);
-	else if (a->strategy == 2)
-		medium_sort(a, b);
-	else if (a->strategy == 3)
-		complex_sort(a, b);
-	else if (a->disorder < 0.2)
-		simple_sort(a, b);
-	else if (a->disorder < 0.5)
-		medium_sort(a, b);
-	else if (a->disorder >= 0.5)
-		complex_sort(a, b);
+	int	int_value;
+	int	decimal;
+	int	digits;
+
+	int_value = (int) n;
+	decimal = (int)((n - int_value) * 100);
+	digits = ft_count_digits(int_value, 10);
+	ft_putnbr_fd(int_value, fd);
+	write(fd, ".", 1);
+	if (decimal < 10)
+	{
+		write(fd, "0", 1);
+		ft_putnbr_fd(decimal, fd);
+	}
+	else
+		ft_putnbr_fd(decimal, fd);
+	return (digits + 3);
 }

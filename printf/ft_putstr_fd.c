@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_stack.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: damiguel <damiguel@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/16 09:44:25 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 13:55:05 by damiguel         ###   ########.fr       */
+/*   Created: 2026/01/20 10:38:45 by damiguel          #+#    #+#             */
+/*   Updated: 2026/02/24 11:40:08 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "ft_printf.h"
 
-void	print_stack(t_stack *s)
+int	ft_putstr_fd(char *s, int fd)
 {
-	t_node	*temp;
+	int	i;
+	int	s_len;
 
-	temp = s->top;
-	while (temp)
+	if (!s)
 	{
-		ft_printf(1, "value: %d | index: %d\n", temp->value, temp->index);
-		temp = temp->next;
+		write(6, "(null)", fd);
+		return (6);
 	}
+	s_len = ft_strlen(s);
+	i = 0;
+	while (i < s_len)
+	{
+		ft_putchar_fd(s[i], fd);
+		i++;
+	}
+	return (i);
 }

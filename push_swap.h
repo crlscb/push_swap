@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 11:38:18 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 11:34:34 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/19 16:37:44 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ void	print_bench(t_stack *a, t_stack *b);
 /*      PARSING      */
 int		bench_flag(char *str, t_stack *a);
 void	error(t_stack *a, t_stack *b);
-void	parse_numbers(int argc, char **argv, t_stack *a, t_stack *b);
+void	parse_numbers(char **argv, t_stack *a, t_stack *b);
 int		strategy_flag(char *str, t_stack *a);
+char	**ft_split(char const *s, char c);
 
 /*       STACK       */
 void	add_node_back(t_stack *stack, int value);
@@ -70,6 +71,7 @@ void	print_stack(t_stack *s);
 int		strict_atoi(char *str, t_stack *a, t_stack *b);
 int		ft_strncmp(const char *s1, const char *s2);
 int		estimate_sqrt(int n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 /*     VALIDATION    */
 int		check_duplicated(t_stack *a);
