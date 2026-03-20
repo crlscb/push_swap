@@ -6,7 +6,7 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:32:02 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/20 11:37:58 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/20 12:02:05 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,17 @@ static void	parse_arr(char **argv, t_stack *a, t_stack *b, int index)
 	}
 }
 
+static void	check_split(char **arr, t_stack *a, t_stack *b)
+{
+	if (!arr)
+		error(a, b);
+	if (!arr[0])
+	{
+		free(arr);
+		error(a, b);
+	}
+}
+
 void	parse_numbers(char **argv, t_stack *a, t_stack *b)
 {
 	int		i;
@@ -60,8 +71,7 @@ void	parse_numbers(char **argv, t_stack *a, t_stack *b)
 	while (argv[i])
 	{
 		arr = ft_split(argv[i], ' ');
-		if (!arr || !arr[0])
-			error(a, b);
+		check_split(arr, a, b);
 		parse_arr(arr, a, b, i);
 		j = 0;
 		while (arr[j])
