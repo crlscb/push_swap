@@ -6,11 +6,11 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/12 11:32:02 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 17:13:16 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/20 11:37:58 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	update_minmax(t_stack *s, int n)
 {
@@ -60,7 +60,7 @@ void	parse_numbers(char **argv, t_stack *a, t_stack *b)
 	while (argv[i])
 	{
 		arr = ft_split(argv[i], ' ');
-		if (!arr)
+		if (!arr || !arr[0])
 			error(a, b);
 		parse_arr(arr, a, b, i);
 		j = 0;

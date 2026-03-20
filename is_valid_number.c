@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_node.c                                      :+:      :+:    :+:   */
+/*   is_valid_number.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 11:38:59 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 11:58:18 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/12 11:35:21 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:31:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-t_node	*create_node(int value)
+int	is_valid_number(char *str)
 {
-	t_node	*new;
+	int	i;
 
-	new = malloc(sizeof(t_node));
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->index = 0;
-	new->next = NULL;
-	new->prev = NULL;
-	return (new);
+	if (!str || str[0] == '\0')
+		return (0);
+	i = 0;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
 }

@@ -6,11 +6,11 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/10 12:48:42 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/17 14:55:11 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/20 11:31:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	simple_sort(t_stack *a, t_stack *b)
 {

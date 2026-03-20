@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   estimate_sqrt.c                                    :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 12:20:22 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/13 14:03:30 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/12 11:31:12 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:31:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-//Esta función calcula una estimación de la raíz cuadrada del número.
-//Es bastante pesada si se le pasa un número largo.
-int	estimate_sqrt(int n)
+int	ft_strncmp(const char *s1, const char *s2)
 {
-	int		i;
-	long	low_diff;
-	long	high_diff;
+	size_t	i;
 
-	if (n < 1)
-		return (0);
 	i = 0;
-	while ((i + 1) * (i + 1) <= n)
-		i++;
-	low_diff = i * i;
-	high_diff = (i + 1) * (i + 1);
-	if ((n - low_diff) <= (high_diff - n))
-		return (i);
-	return (i + 1);
+	while ((s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if ((unsigned char)s1[i] == (unsigned char)s2[i])
+		{
+			i++;
+			continue ;
+		}
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	}
+	return (0);
 }

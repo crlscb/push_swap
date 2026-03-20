@@ -1,57 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/04 14:00:23 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 13:52:29 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/04 13:59:11 by cescobio          #+#    #+#             */
+/*   Updated: 2026/03/20 11:32:13 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "push_swap.h"
+#include "printf/ft_printf.h"
 
-void	rotate(t_stack *stack)
+void	swap(t_stack *stack)
 {
 	t_node	*first;
-	t_node	*last;
+	t_node	*second;
 
 	if (!stack || stack->size < 2)
 		return ;
 	first = stack->top;
-	stack->top = first->next;
-	stack->top->prev = NULL;
-	last = stack->top;
-	while (last->next)
-		last = last->next;
-	last->next = first;
-	first->prev = last;
-	first->next = NULL;
+	second = first->next;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	second->next = first;
+	first->prev = second;
+	second->prev = NULL;
+	stack->top = second;
 }
 
-void	ra(t_stack *a)
+void	sa(t_stack *a)
 {
-	rotate(a);
-	ft_printf(1, "ra\n");
+	swap(a);
+	ft_printf(1, "sa\n");
 	a->total_ops++;
-	a->ra++;
+	a->sa++;
 }
 
-void	rb(t_stack *b)
+void	sb(t_stack *b)
 {
-	rotate(b);
-	ft_printf(1, "rb\n");
+	swap(b);
+	ft_printf(1, "sb\n");
 	b->total_ops++;
-	b->rb++;
+	b->sb++;
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
-	rotate(a);
-	rotate(b);
-	ft_printf(1, "rr\n");
+	swap(a);
+	swap(b);
+	ft_printf(1, "ss\n");
 	a->total_ops++;
-	a->rr++;
+	a->ss++;
 }

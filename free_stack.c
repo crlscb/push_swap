@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_node_back.c                                    :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 11:39:16 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/16 10:09:54 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/16 09:46:52 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:31:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-void	add_node_back(t_stack *stack, int value)
+void	free_stack(t_stack *s)
 {
-	t_node	*new;
-	t_node	*last;
+	t_node	*temp;
+	t_node	*next;
 
-	if (!stack)
+	if (!s)
 		return ;
-	new = create_node(value);
-	if (!new)
-		return ;
-	if (!stack->top)
-		stack->top = new;
-	else
+	temp = s->top;
+	while (temp)
 	{
-		last = stack->top;
-		while (last->next)
-			last = last->next;
-		last->next = new;
-		new->prev = last;
+		next = temp->next;
+		free(temp);
+		temp = next;
 	}
-	stack->size++;
+	free(s);
 }

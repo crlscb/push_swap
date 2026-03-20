@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   check_duplicated.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 11:31:12 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 11:58:28 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/12 11:36:16 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:31:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2)
+int	check_duplicated(t_stack *a)
 {
-	size_t	i;
+	t_node	*current;
+	t_node	*compare;
 
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0'))
+	current = a->top;
+	while (current)
 	{
-		if ((unsigned char)s1[i] == (unsigned char)s2[i])
+		compare = current->next;
+		while (compare)
 		{
-			i++;
-			continue ;
+			if (current->value == compare->value)
+				return (0);
+			compare = compare->next;
 		}
-		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		current = current->next;
 	}
-	return (0);
+	return (1);
 }

@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_order.c                                         :+:      :+:    :+:   */
+/*   bench_flag.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 11:36:42 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 12:03:46 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/12 11:33:34 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:31:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	is_order(t_stack *a)
+int	bench_flag(char *str, t_stack *a)
 {
-	t_node	*current;
-
-	current = a->top;
-	if (!a || !a->top)
-		return (1);
-	while (current->next)
+	if (!str || !a)
+		return (0);
+	if (!ft_strncmp(str, "--bench"))
 	{
-		if (current->value > current->next->value)
-			return (0);
-		current = current->next;
+		a->bench = 1;
+		return (1);
 	}
-	return (1);
+	return (0);
 }

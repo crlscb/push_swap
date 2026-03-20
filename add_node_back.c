@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   compute_disorder.c                                 :+:      :+:    :+:   */
+/*   add_node_back.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 11:38:27 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 12:07:40 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/12 11:39:16 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:31:11 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-double	compute_disorder(t_stack *a)
+void	add_node_back(t_stack *stack, int value)
 {
-	t_node	*i;
-	t_node	*j;
-	int		mistakes;
-	int		total_pairs;
+	t_node	*new;
+	t_node	*last;
 
-	mistakes = 0;
-	total_pairs = 0;
-	i = a->top;
-	while (i)
+	if (!stack)
+		return ;
+	new = create_node(value);
+	if (!new)
+		return ;
+	if (!stack->top)
+		stack->top = new;
+	else
 	{
-		j = i->next;
-		while (j)
-		{
-			total_pairs++;
-			if (i->value > j->value)
-				mistakes++;
-			j = j->next;
-		}
-		i = i->next;
+		last = stack->top;
+		while (last->next)
+			last = last->next;
+		last->next = new;
+		new->prev = last;
 	}
-	if (total_pairs == 0)
-		return (0);
-	return ((double)mistakes / total_pairs);
+	stack->size++;
 }

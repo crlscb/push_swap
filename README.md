@@ -79,7 +79,7 @@ El nivel de desorden se calcula analizando cuántos elementos están fuera de su
 
 #### 🔹 Simple Sort
 
-**Idea:**  
+**Idea:**
 Seleccionar el mínimo y moverlo a B repetidamente.
 
 **Cómo funciona:**
@@ -96,7 +96,7 @@ Seleccionar el mínimo y moverlo a B repetidamente.
 
 #### 🔹 Medium Sort (Chunking)
 
-**Idea:**  
+**Idea:**
 Dividir los valores en rangos y procesarlos por bloques.
 
 **Cómo funciona:**
@@ -113,7 +113,7 @@ Dividir los valores en rangos y procesarlos por bloques.
 
 #### 🔹 Complex Sort (Radix Sort)
 
-**Idea:**  
+**Idea:**
 Ordenar usando la representación binaria de los índices.
 
 **Cómo funciona:**
@@ -173,7 +173,7 @@ Este enfoque permite obtener mejores resultados que una implementación basada �
   - Implementación del sistema de stacks (creación de nodos, inicialización y cálculo de desorden)
   - Implementación de `simple_sort`
   - Implementación de Radix Sort (`complex_sort`)
-  
+
 - **damiguel**
   - Estructuración del proyecto (organización de carpetas)
   - Sistema de flags (`--simple`, `--medium`, `--complex`, `--adaptive`)
@@ -181,7 +181,6 @@ Este enfoque permite obtener mejores resultados que una implementación basada �
   - Implementación de `medium_sort` (chunking)
   - Función `printf` y comprobaciones adicionales
   - Implementación del split para los argumentos
-  - Implementación de Radix Sort (`complex_sort`)
 
 ## Recursos
 

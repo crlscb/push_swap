@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bench_flag.c                                       :+:      :+:    :+:   */
+/*   print_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 11:33:34 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/12 11:57:52 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/16 09:44:25 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:32:13 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
+#include "printf/ft_printf.h"
 
-int	bench_flag(char *str, t_stack *a)
+void	print_stack(t_stack *s)
 {
-	if (!str || !a)
-		return (0);
-	if (!ft_strncmp(str, "--bench"))
+	t_node	*temp;
+
+	temp = s->top;
+	while (temp)
 	{
-		a->bench = 1;
-		return (1);
+		ft_printf(1, "value: %d | index: %d\n", temp->value, temp->index);
+		temp = temp->next;
 	}
-	return (0);
 }

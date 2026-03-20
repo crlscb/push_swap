@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_duplicated.c                                 :+:      :+:    :+:   */
+/*   create_node.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 11:36:16 by damiguel          #+#    #+#             */
-/*   Updated: 2026/03/19 11:29:45 by damiguel         ###   ########.fr       */
+/*   Created: 2026/03/12 11:38:59 by damiguel          #+#    #+#             */
+/*   Updated: 2026/03/20 11:31:28 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	check_duplicated(t_stack *a)
+t_node	*create_node(int value)
 {
-	t_node	*current;
-	t_node	*compare;
+	t_node	*new;
 
-	current = a->top;
-	while (current)
-	{
-		compare = current->next;
-		while (compare)
-		{
-			if (current->value == compare->value)
-				return (0);
-			compare = compare->next;
-		}
-		current = current->next;
-	}
-	return (1);
+	new = malloc(sizeof(t_node));
+	if (!new)
+		return (NULL);
+	new->value = value;
+	new->index = 0;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
 }

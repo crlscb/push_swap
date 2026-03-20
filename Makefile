@@ -6,7 +6,7 @@
 #    By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/03 12:03:20 by cescobio          #+#    #+#              #
-#    Updated: 2026/03/19 16:29:12 by damiguel         ###   ########.fr        #
+#    Updated: 2026/03/20 11:34:16 by damiguel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,33 +17,32 @@ PROGRAM = push_swap
 
 SRC = main.c \
 	bench.c \
-	operations/push.c \
-	operations/reverse_rotate.c \
-	operations/rotate.c \
-	operations/swap.c \
-	parsing/bench_flag.c \
-	parsing/error.c \
-	parsing/parse_numbers.c \
-	parsing/strategy_flag.c \
-	parsing/ft_split.c \
-	sorting/adaptive_sort.c \
-	sorting/select_algorithm.c \
-	sorting/complex_sort.c \
-	sorting/medium_sort.c \
-	sorting/simple_sort.c \
-	stack/add_node_back.c \
-	stack/compute_disorder.c \
-	stack/create_node.c \
-	stack/init_stack.c \
-	stack/print_stack.c \
-	stack/free_stack.c \
-	utils/strict_atoi.c \
-	utils/ft_strncmp.c \
-	utils/estimate_sqrt.c \
-	utils/ft_strlcpy.c \
-	validation/check_duplicated.c \
-	validation/is_order.c \
-	validation/is_valid_number.c
+	push.c \
+	reverse_rotate.c \
+	rotate.c \
+	swap.c \
+	bench_flag.c \
+	error.c \
+	parse_numbers.c \
+	strategy_flag.c \
+	ft_split.c \
+	complex_sort.c \
+	medium_sort.c \
+	simple_sort.c \
+	add_node_back.c \
+	select_algorithm.c \
+	compute_disorder.c \
+	create_node.c \
+	init_stack.c \
+	print_stack.c \
+	free_stack.c \
+	strict_atoi.c \
+	ft_strncmp.c \
+	estimate_sqrt.c \
+	ft_strlcpy.c \
+	check_duplicated.c \
+	is_order.c \
+	is_valid_number.c
 OBJ = $(SRC:.c=.o)
 
 #shuf es un comando muy chungo, nos interesa para generar números aleatorios

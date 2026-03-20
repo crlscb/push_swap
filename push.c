@@ -6,12 +6,12 @@
 /*   By: damiguel <damiguel@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 13:59:58 by cescobio          #+#    #+#             */
-/*   Updated: 2026/03/19 13:52:34 by damiguel         ###   ########.fr       */
+/*   Updated: 2026/03/20 11:32:13 by damiguel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../printf/ft_printf.h"
+#include "push_swap.h"
+#include "printf/ft_printf.h"
 
 void	push(t_stack *from, t_stack *to)
 {
