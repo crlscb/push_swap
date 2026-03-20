@@ -167,7 +167,7 @@ Este enfoque permite obtener mejores resultados que una implementación basada �
 ## Contribuciones
 
 - **cescobio**
-  - Parseo de argumentos
+  - Parseo y de argumentos
   - Validación de datos (duplicados, formato, orden)
   - Implementación de todas las operaciones (`push`, `swap`, `rotate`, `reverse rotate`)
   - Implementación del sistema de stacks (creación de nodos, inicialización y cálculo de desorden)
